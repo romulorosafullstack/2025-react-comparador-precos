@@ -17,7 +17,7 @@
 .logo{
   height: auto;
   margin-bottom: 4rem;
-  width: 200px;
+  width: 20rem;
 }
 
 .title{
@@ -28,6 +28,7 @@
 }
 
 .form__wrapper{
+  margin-bottom: 4rem;
   width: 100%;
 }
 
@@ -57,9 +58,9 @@
   background-color: #fff;
   border: none;
   font-size: 1.6rem;
+  max-width: 500px;
   padding: 1rem;
   width: 100%;
-  max-width: 500px;
 }
 
 .form__submit{
@@ -72,3 +73,34 @@
   padding: 1rem 2rem;
   transition: background-color 0.3s ease;
 }
+
+.status__wrapper{
+  background-color: aquamarine;
+  border-radius: 0.4rem;;
+  max-width: 420px;
+  padding: 2rem 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.status__message1,
+.status__message2{
+  color: #000;
+}
+
+.status__message1{
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.status__message2{
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.status__message2>span{
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
