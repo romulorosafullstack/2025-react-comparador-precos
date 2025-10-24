@@ -107,8 +107,8 @@ export default function App() {
             <section className="status__wrapper">
               <h1 className="status__message1">{info.title}</h1>
               <p className="status__message2">Você economizará <span>{precoAlcool / precoGasolina * 100 - 100}%</span><br /> do que a gasolina custaria.</p>
-              <p className="status__message3">Alcool: {info.alcool}</p>
-              <p className="status__message3">Gasolina:  {info.gasolina}</p>
+              <p className="status__message3">Alcool: R$ {Number(info.alcool).toFixed(2)}</p>
+              <p className="status__message3">Gasolina:  R$ {Number(info.gasolina).toFixed(2)}</p>
             </section>
           )}
 
