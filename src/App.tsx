@@ -105,9 +105,10 @@ export default function App() {
 
           {info && Object.keys(info).length > 0 && (
             <section className="status__wrapper">
-              <p className="status__message1">Você economizará <span>{precoAlcool / precoGasolina * 100 - 100}%</span><br /> do que a gasolina custaria.</p>
-              <p className="status__message2">Alcool: {precoAlcool.toFixed(2)}</p>
-              <p className="status__message2">Gasolina:  {precoGasolina.toFixed(2)}</p>
+              <h1 className="status__message1">{info.title}</h1>
+              <p className="status__message2">Você economizará <span>{precoAlcool / precoGasolina * 100 - 100}%</span><br /> do que a gasolina custaria.</p>
+              <p className="status__message3">Alcool: {info.alcool}</p>
+              <p className="status__message3">Gasolina:  {info.gasolina}</p>
             </section>
           )}
 

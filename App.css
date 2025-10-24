@@ -93,6 +93,7 @@
 .status__message1,
 .status__message2{
   color: #000;
+  margin-bottom: 1rem;
 }
 
 .status__message1{
@@ -102,13 +103,18 @@
 }
 
 .status__message2{
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 400;
-  margin-bottom: 0.5rem;
 }
 
 .status__message2>span{
-  font-size: 1.8rem;
+
   font-weight: 700;
+}
+
+.status__message3{
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
