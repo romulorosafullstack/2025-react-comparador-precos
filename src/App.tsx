@@ -24,20 +24,29 @@ export default function App() {
       return
     } else {
       if (calculo <= 0.7) {
-      setInfo({
-        title: "Compensa usar alcool",
-        gasolina: precoGasolina,
-        alcool: precoAlcool,
-      })
-    } else {
-      setInfo({
-        title: "Compensa usar gasolina",
-        gasolina: precoGasolina,
-        alcool: precoAlcool,
-      })
-    }
-  } 
-}
+        setInfo({
+          title: "Compensa usar alcool",
+          gasolina: converterMoeda(precoGasolina),
+          alcool: converterMoeda(precoAlcool),
+        })
+      } else {
+        setInfo({
+          title: "Compensa usar gasolina",
+          gasolina: converterMoeda(precoGasolina),
+          alcool: converterMoeda(precoAlcool),
+        })
+      }
+    } 
+  }
+
+  function converterMoeda(valor: number) {
+    const valorFormatado = valor.toLocaleString("pt-BR",
+    {
+      style: "currency",
+      currency: "BRL"
+    })
+    return valorFormatado
+  }
 
   return (
     <>
@@ -107,8 +116,8 @@ export default function App() {
             <section className="status__wrapper">
               <h1 className="status__message1">{info.title}</h1>
               <p className="status__message2">Você economizará <span>{precoAlcool / precoGasolina * 100 - 100}%</span><br /> do que a gasolina custaria.</p>
-              <p className="status__message3">Alcool: R$ {Number(info.alcool).toFixed(2)}</p>
-              <p className="status__message3">Gasolina:  R$ {Number(info.gasolina).toFixed(2)}</p>
+              <p className="status__message3">Alcool: {info.alcool}</p>
+              <p className="status__message3">Gasolina: {info.gasolina}</p>
             </section>
           )}
 
