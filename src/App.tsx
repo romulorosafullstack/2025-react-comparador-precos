@@ -4,18 +4,40 @@ import logoImg from "./assets/logo.png"
 
 import React, { useState, type FormEvent } from "react"
 
+interface InfoProps{
+  title: string;
+  gasolina: number | string;
+  alcool: number | string;
+}
 
 export default function App() {
   const [precoAlcool, setPrecoAlcool] = useState<number>(0)
   const [precoGasolina, setPrecoGasolina] = useState<number>(0)
-  const [mensagem, setMensagem] = useState("")
+  const [info, setInfo] = useState<InfoProps>()
+
 
   function calcular(event: FormEvent) {
     event.preventDefault()
     const calculo = precoAlcool / precoGasolina;
-    const calcresposta = calculo <= 0.7 ? "Compensa usar alcool!" : "Compensa usar gasolina!";
-    setMensagem(calcresposta);
-  }
+
+    if (precoAlcool === 0 || precoGasolina === 0) {
+      return
+    } else {
+      if (calculo <= 0.7) {
+      setInfo({
+        title: "Compensa usar alcool",
+        gasolina: precoGasolina,
+        alcool: precoAlcool,
+      })
+    } else {
+      setInfo({
+        title: "Compensa usar gasolina",
+        gasolina: precoGasolina,
+        alcool: precoAlcool,
+      })
+    }
+  } 
+}
 
   return (
     <>
@@ -81,10 +103,14 @@ export default function App() {
             </div>
           </form>
 
-          <section className="status__wrapper">
-            <p className="status__message1">{mensagem} </p>
-            <p className="status__message2">Você economizará <span>{precoAlcool / precoGasolina * 100 - 100}%</span> do que a gasolina custaria.</p>
-          </section>
+          {info && Object.keys(info).length > 0 && (
+            <section className="status__wrapper">
+              <p className="status__message1">Você economizará <span>{precoAlcool / precoGasolina * 100 - 100}%</span><br /> do que a gasolina custaria.</p>
+              <p className="status__message2">Alcool: {precoAlcool.toFixed(2)}</p>
+              <p className="status__message2">Gasolina:  {precoGasolina.toFixed(2)}</p>
+            </section>
+          )}
+
         </div>
       </main>
     </>
